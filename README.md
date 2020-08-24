@@ -41,7 +41,7 @@ cp DeepSZ/Makefile.config caffe/
 cd caffe
 ```
 
-- Modify dependencies’ paths in Makefile.config, including CUDA_DIR (line 30), CUDA_ARCH (line 39), PYTHON_LIBRARIES (line 78), PYTHON_INCLUDE (line 79-80), INCLUDE_DIRS (line 94), LIBRARY_DIRS (line 95)
+- Modify dependencies’ paths in Makefile.config, including CUDA_DIR (line 30), CUDA_ARCH (line 39), PYTHON_LIBRARIES (line 78), PYTHON_INCLUDE (line 79-80), INCLUDE_DIRS (line 94), LIBRARY_DIRS (line 95), USE_NCCL (line 103)
 
 - Note if you are using Python 3.7, you need to change "boost_python3" to "boost_python37" (line 57) of Makefile.config
 
@@ -55,10 +55,17 @@ CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
                 -gencode arch=compute_75,code=compute_75 
 ```
 
+- Note that if you enable NCCL (USE_NCCL := 1), please add your NCCL library path to both LIBRARY_DIRS (in Makefile.config) and LD_LIBRARY_PATH. 
+
 - Compile and Install Caffe/PyCaffe
 ```
 make all -j 4
 make pycaffe
+```
+
+- Install PyCaffe's dependencies
+```
+pip install scikit-image
 ```
 
 ## Test PyCaffe
