@@ -31,7 +31,7 @@ conda install protobuf glog gflags hdf5 openblas boost snappy leveldb lmdb pkgco
 
 - Download DeepSZ
 ```
-git clone https://github.com/szcompressor/DeepSZ
+git clone https://github.com/szcompressor/DeepSZ.git
 ```
 
 - Download Caffe/PyCaffe
