@@ -104,7 +104,7 @@ tar -xzvf ilsvrc12_val_lmdb.tar.gz
 
 - Finally, please use the below command to run DeepSZ to compress the network and test the accuracy with the decompressed model:
 ```
-bash ./launch.sh
+bash launch.sh
 ```
 
 - Note that the script will automatically download and compile SZ lossy compression software. 
