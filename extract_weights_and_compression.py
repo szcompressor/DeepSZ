@@ -14,8 +14,8 @@ net = caffe.Net(model_def,      # defines the structure of the model
                 model_weights,  # contains the trained weights
                 caffe.TEST)
 
-print "Initialization done!"
-print "Start converting weights into sparse representation ..."
+print ("Initialization done!")
+print ("Start converting weights into sparse representation ...")
 
 folder = os.path.exists("./data")
 if not folder:
@@ -37,7 +37,7 @@ for i in range(len(feat)):
         index[k] = 0
         k = k+1
         bit = 0
-    if (feat[i] <> 0):
+    if (feat[i] != 0):
         data[kk] = feat[i]
         index[k] = bit
         k = k+1
@@ -55,15 +55,15 @@ for i in range(k):
 a.astype('float32').tofile('./data/fc6-data-o.dat')
 b.astype('uint8').tofile('./data/fc6-index-o.dat')
 
-print "fc6 transferred"
-print "start compressing and decompressing ..."
+print ("fc6 transferred")
+print ("start compressing and decompressing ...")
 
 bash_line = "python ./bash_script.py " + str(kk) + " 6"
 os.system(bash_line)
 bash_line = "source ./SZ_compress_script/fc6_script.sh"
 os.system(bash_line)
 
-print"fc6 decompression finished"
+print ("fc6 decompression finished")
 
 feat = net.params['fc7'][0].data
 feat = np.reshape(feat, 4096*4096)
@@ -81,7 +81,7 @@ for i in range(len(feat)):
         index[k] = 0
         k = k+1
         bit = 0
-    if (feat[i] <> 0):
+    if (feat[i] != 0):
         data[kk] = feat[i]
         index[k] = bit
         k = k+1
@@ -99,15 +99,15 @@ for i in range(k):
 a.astype('float32').tofile('./data/fc7-data-o.dat')
 b.astype('uint8').tofile('./data/fc7-index-o.dat')
 
-print "fc7 transferred"
-print "start compressing and decompressing ..."
+print ("fc7 transferred")
+print ("start compressing and decompressing ...")
                                  
 bash_line = "python ./bash_script.py " + str(kk) + " 7"
 os.system(bash_line)             
 bash_line = "source ./SZ_compress_script/fc7_script.sh"                                                                       
 os.system(bash_line)
                                                                                                         
-print"fc7 decompression finished"
+print ("fc7 decompression finished")
 
 
 feat = net.params['fc8'][0].data
@@ -126,7 +126,7 @@ for i in range(len(feat)):
         index[k] = 0
         k = k+1
         bit = 0
-    if (feat[i] <> 0):
+    if (feat[i] != 0):
         data[kk] = feat[i]
         index[k] = bit
         k = k+1
@@ -144,14 +144,14 @@ for i in range(k):
 a.astype('float32').tofile('./data/fc8-data-o.dat')
 b.astype('uint8').tofile('./data/fc8-index-o.dat')
 
-print "fc8 transferred"
-print "start compressing and decompressing ..."
+print ("fc8 transferred")
+print ("start compressing and decompressing ...")
                                  
 bash_line = "python ./bash_script.py " + str(kk) + " 8"
 os.system(bash_line)             
 bash_line = "source ./SZ_compress_script/fc8_script.sh"                                                                       
 os.system(bash_line)
                                                                                                                               
-print"fc8 decompression finished"
+print ("fc8 decompression finished")
 
 

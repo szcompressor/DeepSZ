@@ -47,7 +47,7 @@ for i in range(1, 10):
     k = 0
     q = 0
     for j in range(len(index)):
-        if (index[j]==0) and (j <> 0):
+        if (index[j]==0) and (j != 0):
             k = k + 255
         else:
             k = k + index[j]
