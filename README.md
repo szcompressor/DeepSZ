@@ -8,10 +8,11 @@ This repo is an implementation of DeepSZ based on Caffe deep learning framework 
 
 ## Prerequisites
 ```
-Anaconda 3 with Python 3.7
+Anaconda 3 with Python 3.6+
+NVIDIA CUDA 10+
+GCC 6 or GCC 7
 Caffe 1.0
-NVIDIA CUDA 10.0
-GCC 6.3 or 7.3
+SZ 2.0+
 ImageNet validation dataset
 ```
 
@@ -46,7 +47,7 @@ cd caffe
 
 - Note if you are using Python 3.7, please change "boost_python3" to "boost_python37" (line 57) of Makefile.config.
 
-- Note that our CUDA_ARCH in Makefile.config is for Frontera's NVIDIA RTX 5000 GPUs (working for Tesla V100 as well), please adapt CUDA_ARCH to your GPU and CUDA accordingly.
+- Note that our default CUDA_ARCH in Makefile.config is for Frontera's NVIDIA RTX 5000 GPUs (working for Tesla V100 as well), please adapt CUDA_ARCH to your GPU and CUDA accordingly.
 ```
 CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
                 -gencode arch=compute_60,code=sm_60 \
