@@ -10,7 +10,7 @@ This repo is an implementation of DeepSZ based on Caffe deep learning framework 
 ```
 Anaconda 3 with Python 3.6+
 NVIDIA CUDA 10+
-GCC 6 or GCC 7
+GCC 6.3 or GCC 7.3
 Caffe 1.0
 SZ 2.0+
 ImageNet validation dataset
@@ -29,7 +29,7 @@ conda create -n deepsz_env
 conda activate deepsz_env
 conda install protobuf glog gflags hdf5 openblas boost snappy leveldb lmdb pkgconfig zlib opencv cudnn
 ```
-Note that "conda install cudnn" will automatically install another cudatoolkit (different from your system default one), so you can use "conda install cudatoolkit=10.1" to make sure the two version are consistent; otherwise, runtime will report an error. For example, in TACC Frontera, you can use "module load cuda/10.1" and "conda install cudnn cudatoolkit=10.1". 
+Note that "conda install cudnn" will automatically install another cudatoolkit (different from your system default one), so you can use "conda install cudatoolkit=[version number]" to make sure the two version are consistent; otherwise, runtime will report an error. For example, in TACC Frontera, you can use "module load cuda/10.1" and "conda install cudnn cudatoolkit=10.1". 
 
 - Download DeepSZ:
 ```
