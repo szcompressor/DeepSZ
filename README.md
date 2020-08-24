@@ -78,7 +78,7 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 ## Run DeepSZ
 
-- After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your PyCaffe location.
+- After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your Caffe and PyCaffe directories.
 
 - Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto and your ImageNet validation file location.
 
