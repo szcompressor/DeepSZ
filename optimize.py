@@ -89,7 +89,7 @@ net.params['fc8'][0].data[:]=feat
 line = "./decompressed_model/AlexNet-" + str(eb_fc6+1) + str(eb_fc7+1) + str(eb_fc8+1) + ".caffemodel"
 net.save(line)
 
-line_exc = caffe_home + "/build/tools/caffe test -model ./train_val.prototxt -weights " + line + " -iterations 4 &> ./decompressed_model/caffe_test_log.txt"
+line_exc = caffe_home + "/build/tools/caffe test -model ./train_val.prototxt -weights " + line + " -iterations 1000 &> ./decompressed_model/caffe_test_log.txt"
 os.system(line_exc)
 line = "cat ./decompressed_model/caffe_test_log.txt | grep \"] accuracy =\" > ./decompressed_model/accuracy.txt"
 os.system(line_exc)
