@@ -2,7 +2,7 @@
 
 ## About DeepSZ
 
-DeepSZ is an accuracy-loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimization for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. The paper is available at: https://dl.acm.org/doi/10.1145/3307681.3326608.
+DeepSZ [1] is an accuracy-loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimization for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. The paper is available at: https://dl.acm.org/doi/10.1145/3307681.3326608.
 
 This repo is an implementation of DeepSZ based on Caffe deep learning framework [1] and SZ lossy compressor [2]. Below is the instruction to run DeepSZ on AlexNet using [TACC Frontera system](https://www.tacc.utexas.edu/systems/frontera), which can be adapted to other DNN models (such as VGG-16) and HPC systems with some modifications to the code and scripts (mainly for the network architecture information). 
 
@@ -109,6 +109,8 @@ bash launch.sh
 
 - Note that the script will automatically download and compile SZ lossy compression software. 
 
-[1] Jia, Yangqing, Evan Shelhamer, Jeff Donahue, Sergey Karayev, Jonathan Long, Ross Girshick, Sergio Guadarrama, and Trevor Darrell. "Caffe: Convolutional architecture for fast feature embedding." In Proceedings of the 22nd ACM international conference on Multimedia, pp. 675-678. 2014.
+[1] Jin, Sian, Sheng Di, Xin Liang, Jiannan Tian, Dingwen Tao, and Franck Cappello. "Deepsz: A novel framework to compress deep neural networks by using error-bounded lossy compression." In Proceedings of the 28th International Symposium on High-Performance Parallel and Distributed Computing, pp. 159-170. 2019.
 
-[2] Tao, Dingwen, Sheng Di, Zizhong Chen, and Franck Cappello. "Significantly improving lossy compression for scientific data sets based on multidimensional prediction and error-controlled quantization." In 2017 IEEE International Parallel and Distributed Processing Symposium (IPDPS), pp. 1129-1139. IEEE, 2017. 
+[2] Jia, Yangqing, Evan Shelhamer, Jeff Donahue, Sergey Karayev, Jonathan Long, Ross Girshick, Sergio Guadarrama, and Trevor Darrell. "Caffe: Convolutional architecture for fast feature embedding." In Proceedings of the 22nd ACM international conference on Multimedia, pp. 675-678. 2014.
+
+[3] Tao, Dingwen, Sheng Di, Zizhong Chen, and Franck Cappello. "Significantly improving lossy compression for scientific data sets based on multidimensional prediction and error-controlled quantization." In 2017 IEEE International Parallel and Distributed Processing Symposium (IPDPS), pp. 1129-1139. IEEE, 2017. 
