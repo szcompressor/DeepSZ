@@ -26,7 +26,7 @@ bash Anaconda3-2020.02-Linux-x86_64.sh
 ```
 conda create -n deepsz_env
 conda activate deepsz_env
-conda install protobuf glog gflags hdf5 openblas boost cudnn snappy leveldb lmdb pkgconfig zlib opencv=3.4.1 cudatoolkit=10.1
+conda install protobuf glog gflags hdf5 openblas boost snappy leveldb lmdb pkgconfig zlib opencv cudnn
 ```
 
 - Download DeepSZ
