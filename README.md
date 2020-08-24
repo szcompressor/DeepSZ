@@ -75,6 +75,11 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 - Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto and your ImageNet validation file location.
 
+- After that, please download AlexNet model into DeepSZ root directory.
+```
+wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
+```
+
 - Finally, you can launch DeepSZ using the below command 
 ```
 bash ./launch.sh
