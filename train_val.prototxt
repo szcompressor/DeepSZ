@@ -10,7 +10,7 @@ layer {
   transform_param {
     mirror: true
     crop_size: 227
-    mean_file: "/home/jinsian/caffe-master/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/scratch/07418/sianjin/caffedata/imagenet_mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -37,7 +37,7 @@ layer {
   transform_param {
     mirror: false
     crop_size: 227
-    mean_file: "/home/jinsian/caffe-master/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/scratch/07418/sianjin/caffedata/imagenet_mean.binaryproto"
   }
 # mean pixel / channel-wise mean instead of mean image
 #  transform_param {
@@ -48,7 +48,7 @@ layer {
 #    mirror: false
 #  }
   data_param {
-    source: "/home/jinsian/caffe-master/examples/imagenet/ilsvrc12_val_lmdb"
+    source: "/scratch/07418/sianjin/caffedata-2/ilsvrc12_val_lmdb"
     batch_size: 50
     backend: LMDB
   }

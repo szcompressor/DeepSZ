@@ -1,6 +1,6 @@
 #1st arg should be layer number
 
-caffe_home = "/home/jinsian/caffe-master"
+caffe_home = "/home/07418/sianjin/caffe"
 
 import os
 import sys

@@ -1,4 +1,4 @@
-caffe_home = "/home/jinsian/caffe-master"
+caffe_home = "/home/07418/sianjin/caffe"
 
 import numpy as np
 import os
