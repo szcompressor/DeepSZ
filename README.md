@@ -76,7 +76,7 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 - Then, please try “import caffe” in Python; if no error is reported, PyCaffe is working!!
 
-## Download ImageNet Validation Dataset and AlexNet Model
+## Download Validation Dataset and DNN Model
 - Please download AlexNet model into DeepSZ root directory:
 ```
 wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
@@ -87,8 +87,6 @@ wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
 wget https://eecs.wsu.edu/~dtao/deepsz/imagenet_mean.binaryproto
 wget https://eecs.wsu.edu/~dtao/deepsz/ilsvrc12_val_lmdb.tar.gz
 tar -xzvf ilsvrc12_val_lmdb.tar.gz
-mv imagenet_mean.binaryproto /scratch/07418/sianjin/caffedata/
-mv ilsvrc12_val_lmdb /scratch/07418/sianjin/caffedata/
 ````
 
 ## Run DeepSZ
