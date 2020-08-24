@@ -75,6 +75,11 @@ pip install scikit-image
 export PYTHONPATH=$PYTHONPATH:/home1/06128/dtao/caffe/python
 ```
 
+- Please add your conda library path into your LD_LIBRARY_PATH, e.g.:
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home1/06128/dtao/anaconda3/envs/deepsz_env/lib
+```
+
 - Then, please try “import caffe” in Python; if no error is reported, PyCaffe is working!!
 
 ## Download Validation Dataset and DNN Model
