@@ -76,7 +76,7 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 - Then, please try “import caffe” in Python; if no error is reported, PyCaffe is working!!
 
-## Download Dataset and Model
+## Download ImageNet Validation Dataset and AlexNet Model
 - Please download AlexNet model into DeepSZ root directory:
 ```
 wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
