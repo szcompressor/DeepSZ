@@ -46,17 +46,17 @@ cd caffe
 
 - Note if you are using Python 3.7, please change "boost_python3" to "boost_python37" (line 57) of Makefile.config.
 
-- Note that if your system is running with NVIDIA Tesla GPUs (e.g., V100) or higher generations of NVIDIA GPUs (e.g., RTX 5000), please comment out GPU arch lower than compute_52 and sm_52. CUDA_ARCH should look like below:
+- Note that our CUDA_ARCH in Makefile.config is for Frontera's NVIDIA RTX 5000 GPUs (working for Tesla V100 as well), please adapt CUDA_ARCH to your GPU and CUDA accordingly.
 ```
 CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
-                -gencode arch=compute_60,code=sm_60 \ 
+                -gencode arch=compute_60,code=sm_60 \
                 -gencode arch=compute_61,code=sm_61 \
-                -gencode arch=compute_70,code=sm_70 \ 
+                -gencode arch=compute_70,code=sm_70 \
                 -gencode arch=compute_75,code=sm_75 \
-                -gencode arch=compute_75,code=compute_75 
+                -gencode arch=compute_75,code=compute_75
 ```
 
-- Note that if you wan to enable NCCL (USE_NCCL := 1), please add your NCCL path to INCLUDE_DIRS and LIBRARY_DIRS in Makefile.config and LD_LIBRARY_PATH. 
+- Note that if you want to enable NCCL (USE_NCCL := 1), please add your NCCL path to INCLUDE_DIRS and LIBRARY_DIRS in Makefile.config and LD_LIBRARY_PATH. 
 
 - Compile and Install Caffe/PyCaffe:
 ```
