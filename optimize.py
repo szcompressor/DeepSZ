@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import caffe
 plt.rcParams['figure.figsize'] = (15, 15)
 
-o_accuracy = 0.56   #original accuracy
+o_accuracy = 0.5741   #original accuracy
 e_accuracy = 0.005  #acceptable accuracy loss
 max_test = 9
 num_layers = 3
