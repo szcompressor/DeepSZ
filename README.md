@@ -2,13 +2,13 @@
 
 ## About DeepSZ
 
-DeepSZ is an accuracy- loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimiza- tion for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. This repo is an implementation of DeepSZ. The paper is available at:
-https://dl.acm.org/doi/10.1145/3307681.3326608. The below instruction is for DeepSZ implementation on AlexNet, which can be adapted to VGG-16 or other DNNs with some modifications to the code and scripts (mainly for the network architecture information). 
+DeepSZ is an accuracy-loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimization for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. The paper is available at: https://dl.acm.org/doi/10.1145/3307681.3326608.
+
+This repo is an implementation of DeepSZ. Below is the instruction for DeepSZ on AlexNet, which can be adapted to VGG-16 or other DNNs with some modifications to the code and scripts (mainly for the network architecture information). 
 
 ## Prerequisites
 ```
-Anaconda 3
-Python 3.7
+Anaconda 3 with Python 3.7
 Caffe 1.0
 NVIDIA CUDA 10.0
 GCC 7.3.0
