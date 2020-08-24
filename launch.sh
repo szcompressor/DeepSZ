@@ -1,4 +1,4 @@
-export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
+export PYTHONPATH=$PYTHONPATH:/home1/06128/dtao/caffe/python
 
 source ./build_SZ.sh
 
