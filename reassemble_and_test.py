@@ -63,7 +63,7 @@ for i in range(1, 10):
     print("testing...")
     line = "./decompressed_model/AlexNet-" + str(i) + "00.caffemodel"
     net.save(line)
-    line = caffe_home + "/build/tools/caffe test -model ./train_val.prototxt -weights ./decompressed_model/AlexNet-" + str(i) + "00.caffemodel -iterations 1000 &> ./decompressed_model/caffe_test_log.txt"
+    line = caffe_home + "/build/tools/caffe test -model ./train_val.prototxt -weights ./decompressed_model/AlexNet-" + str(i) + "00.caffemodel -iterations 1000 -gpu 0 &> ./decompressed_model/caffe_test_log.txt"
     os.system(line)
     line = "cat ./decompressed_model/caffe_test_log.txt | grep \"] accuracy =\" > ./decompressed_model/accuracy.txt"
     os.system(line)  
