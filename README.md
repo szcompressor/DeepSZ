@@ -4,7 +4,7 @@
 
 DeepSZ is an accuracy-loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimization for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. The paper is available at: https://dl.acm.org/doi/10.1145/3307681.3326608.
 
-This repo is an implementation of DeepSZ. Below is the instruction for DeepSZ on AlexNet, which can be adapted to VGG-16 or other DNNs with some modifications to the code and scripts (mainly for the network architecture information). 
+This repo is an implementation of DeepSZ. Below is the instruction for DeepSZ on AlexNet using TACC Longhorn system, which can be adapted to other DNN models (such as VGG-16) and HPC systems with some modifications to the code and scripts (mainly for the network architecture information). 
 
 ## Prerequisites
 ```
