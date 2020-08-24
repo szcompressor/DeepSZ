@@ -1,3 +1,5 @@
+export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
+
 source ./build_SZ.sh
 
 python ./extract_weights_and_compression.py    #extract weights compress and decompress
