@@ -16,36 +16,36 @@ ImageNet validation dataset
 ```
 
 ## Install Caffe/PyCaffe (via Anaconda)
-- Download and install Anaconda
+- Download and install Anaconda:
 ```
 wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
 bash Anaconda3-2020.02-Linux-x86_64.sh
 ```
 
-- Create conda new environment and install dependencies
+- Create conda new environment and install dependencies:
 ```
 conda create -n deepsz_env
 conda activate deepsz_env
 conda install protobuf glog gflags hdf5 openblas boost snappy leveldb lmdb pkgconfig zlib opencv cudnn
 ```
 
-- Download DeepSZ
+- Download DeepSZ:
 ```
 git clone https://github.com/szcompressor/DeepSZ.git
 ```
 
-- Download Caffe/PyCaffe
+- Download Caffe/PyCaffe:
 ```
 git clone https://github.com/BVLC/caffe.git
 cp DeepSZ/Makefile.config caffe/
 cd caffe
 ```
 
-- Modify dependencies’ paths in Makefile.config, including CUDA_DIR (line 30), CUDA_ARCH (line 39), PYTHON_LIBRARIES (line 78), PYTHON_INCLUDE (line 79-80), INCLUDE_DIRS (line 94), LIBRARY_DIRS (line 95), USE_NCCL (line 103)
+- Modify dependencies’ paths in Makefile.config, including CUDA_DIR (line 30), CUDA_ARCH (line 39), PYTHON_LIBRARIES (line 78), PYTHON_INCLUDE (line 79-80), INCLUDE_DIRS (line 94), LIBRARY_DIRS (line 95), USE_NCCL (line 103).
 
-- Note if you are using Python 3.7, you need to change "boost_python3" to "boost_python37" (line 57) of Makefile.config
+- Note if you are using Python 3.7, please change "boost_python3" to "boost_python37" (line 57) of Makefile.config.
 
-- Note that if your system is running on V100 GPUs, you need to comment out GPU arch lower than compute_52 and sm_52. CUDA_ARCH should look like below
+- Note that if your system is running with Tesla V100 GPUs, please comment out GPU arch lower than compute_52 and sm_52. CUDA_ARCH should look like below:
 ```
 CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
                 -gencode arch=compute_60,code=sm_60 \ 
@@ -57,24 +57,24 @@ CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
 
 - Note that if you enable NCCL (USE_NCCL := 1), please add your NCCL library path to both LIBRARY_DIRS (in Makefile.config) and LD_LIBRARY_PATH. 
 
-- Compile and Install Caffe/PyCaffe
+- Compile and Install Caffe/PyCaffe:
 ```
 make all -j 4
 make pycaffe
 ```
 
-- Install PyCaffe's dependencies
+- Install PyCaffe's dependency:
 ```
 pip install scikit-image
 ```
 
 ## Test PyCaffe
-- Please put your caffe/python path into your PYTHONPATH accordingly, e.g.,
+- Please put your caffe/python path into your PYTHONPATH accordingly, e.g.:
 ```
 export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 ```
 
-- Then, launch Python and “import caffe”, if no error reports, PyCaffe is working! 
+- Then, please try “import caffe” in Python; if no error is reported, PyCaffe is working!!
 
 ## Run DeepSZ
 
@@ -82,12 +82,12 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 - Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto and your ImageNet validation file location.
 
-- After that, please download AlexNet model into DeepSZ root directory.
+- After that, please download AlexNet model into DeepSZ root directory:
 ```
 wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
 ```
 
-- Finally, you can launch DeepSZ using the below command 
+- Finally, please use the below command to run DeepSZ to compress the network and test the accuracy with the decompressed model:
 ```
 bash ./launch.sh
 ```
