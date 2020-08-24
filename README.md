@@ -27,7 +27,7 @@ Note you may need to change "boost_python3" to "boost_python37" if you are using
 
 ########################################################
 
-After git clone DeepSZ, you will need to modify reassemble_and_test.py and optimize.py in their first line to address your caffe location.
+After git clone DeepSZ, you will need to modify "launch.sh", "reassemble_and_test.py" and "optimize.py" in their first line to address your Caffe/PyCaffe location.
 
 Then please change train_val.prototxt line 40 and line 51 to match your imagenet_mean.binaryproto and your ImageNet validation file location.
 
