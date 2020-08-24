@@ -98,7 +98,7 @@ tar -xzvf ilsvrc12_val_lmdb.tar.gz
 
 ## Run DeepSZ
 
-- After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your Caffe (e.g., /home1/06128/dtao/caffe) and PyCaffe directories (e.g., /home1/06128/dtao/caffe/python).
+- After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your Caffe directory (e.g., /home1/06128/dtao/caffe) and PyCaffe directory (e.g., /home1/06128/dtao/caffe/python).
 
 - Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto file location (e.g., /work/06128/dtao/frontera/caffedata) and your ImageNet validation data file location (e.g., /work/06128/dtao/frontera/caffedata/ilsvrc12_val_lmdb).
 
