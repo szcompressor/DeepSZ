@@ -69,7 +69,7 @@ pip install scikit-image
 ```
 
 ## Test PyCaffe
-- Please put your caffe/python path into your PYTHONPATH accordingly, e.g.:
+- Please put your PyCaffe path into your PYTHONPATH accordingly, e.g.:
 ```
 export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 ```
@@ -85,7 +85,10 @@ wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
 - Please download ImageNet validation data and put them to e.g. /scratch/07418/sianjin/caffedata/:
 ```
 wget https://eecs.wsu.edu/~dtao/deepsz/imagenet_mean.binaryproto
+wget https://eecs.wsu.edu/~dtao/deepsz/ilsvrc12_val_lmdb.tar.gz
+tar -xzvf ilsvrc12_val_lmdb.tar.gz
 mv imagenet_mean.binaryproto /scratch/07418/sianjin/caffedata/
+mv ilsvrc12_val_lmdb /scratch/07418/sianjin/caffedata/
 ````
 
 ## Run DeepSZ
@@ -98,3 +101,5 @@ mv imagenet_mean.binaryproto /scratch/07418/sianjin/caffedata/
 ```
 bash ./launch.sh
 ```
+
+- Note that the script will automatically download and compile SZ lossy compression software. 
