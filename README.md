@@ -76,16 +76,23 @@ export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
 
 - Then, please try “import caffe” in Python; if no error is reported, PyCaffe is working!!
 
+## Download Dataset and Model
+- Please download AlexNet model into DeepSZ root directory:
+```
+wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
+```
+
+- Please download ImageNet validation data and put them to e.g. /scratch/07418/sianjin/caffedata/:
+```
+wget https://eecs.wsu.edu/~dtao/deepsz/imagenet_mean.binaryproto
+mv imagenet_mean.binaryproto /scratch/07418/sianjin/caffedata/
+````
+
 ## Run DeepSZ
 
 - After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your Caffe and PyCaffe directories.
 
-- Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto and your ImageNet validation file location.
-
-- After that, please download AlexNet model into DeepSZ root directory:
-```
-wget https://eecs.wsu.edu/~dtao/deepsz/caffenet_pruned.caffemodel
-```
+- Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto location (e.g., /scratch/07418/sianjin/caffedata/) and your ImageNet validation file location (e.g., /scratch/07418/sianjin/caffedata/ilsvrc12_val_lmdb).
 
 - Finally, please use the below command to run DeepSZ to compress the network and test the accuracy with the decompressed model:
 ```
