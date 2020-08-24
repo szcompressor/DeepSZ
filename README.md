@@ -1,34 +1,81 @@
 # DeepSZ
 
-This is a draft implementation of DeepSZ, paper available at:
-https://arxiv.org/abs/1901.09124
+## About DeepSZ
 
-Essential tools needed: Caffe, PyCaffe, ImageNet validation dataset and Python.
-GPU version of Caffe is recommended
+DeepSZ is an accuracy- loss expected neural network compression framework, which involves four key steps: network pruning, error bound assessment, optimiza- tion for error bound configuration, and compressed model generation, featuring a high compression ratio and low encoding time. This repo is an implementation of DeepSZ. The paper is available at:
+https://dl.acm.org/doi/10.1145/3307681.3326608. The below instruction is for DeepSZ implementation on AlexNet, which can be adapted to VGG-16 or other DNNs with some modifications to the code and scripts (mainly for the network architecture information). 
 
-This instruction is for DeepSZ implementation on AlexNet. Can be adopt to on VGG-16 and LeNet with some modifications to the code.
+## Prerequisites
+```
+Anaconda 3
+Python 3.7
+Caffe 1.0
+NVIDIA CUDA 10.0
+GCC 7.3.0
+ImageNet validation dataset
+```
 
-########################################################
+## Install Caffe/PyCaffe (via Anaconda)
+- Download and install Anaconda
+```
+wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+bash Anaconda3-2020.02-Linux-x86_64.sh
+```
 
-To start, please install Caffe following this instruction:
-https://caffe.berkeleyvision.org/installation.html
+- Create conda new environment and install dependencies
+```
+conda create -n deepsz_env
+conda activate deepsz_env
+conda install protobuf glog gflags hdf5 openblas boost cudnn snappy leveldb lmdb pkgconfig zlib opencv=3.4.1 cudatoolkit=10.1
+```
 
-Makefile.config needs to be modified to fit your system. Note that for machine running CUDA 10 with V100 GPUs, you also need to comment GPU arch lower than 52. Should looks something like:
+- Download DeepSZ
+```
+git clone https://github.com/szcompressor/DeepSZ
+```
 
+- Download Caffe/PyCaffe
+```
+git clone https://github.com/BVLC/caffe.git
+cp DeepSZ/Makefile.config caffe/
+cd caffe
+```
+
+- Modify dependencies’ paths in Makefile.config, including CUDA_DIR (line 30), CUDA_ARCH (line 39), PYTHON_LIBRARIES (line 78), PYTHON_INCLUDE (line 79-80), INCLUDE_DIRS (line 94), LIBRARY_DIRS (line 95)
+
+- Note if you are using Python 3.7, you need to change "boost_python3" to "boost_python37" (line 57) of Makefile.config
+
+- Note that if your system is running on V100 GPUs, you need to comment out GPU arch lower than compute_52 and sm_52. CUDA_ARCH should look like below
+```
 CUDA_ARCH := -gencode arch=compute_52,code=sm_52 \
                 -gencode arch=compute_60,code=sm_60 \ 
                 -gencode arch=compute_61,code=sm_61 \
                 -gencode arch=compute_70,code=sm_70 \ 
                 -gencode arch=compute_75,code=sm_75 \
                 -gencode arch=compute_75,code=compute_75 
+```
 
-After building Caffe, PyCaffe is also required. Installed by "make pycaffe"
-Note you may need to change "boost_python3" to "boost_python37" if you are using python 3.7 in line 57 of Makefile.config
+- Compile and Install Caffe/PyCaffe
+```
+make all -j 4
+make pycaffe
+```
 
-########################################################
+## Test PyCaffe
+- Please put your caffe/python path into your PYTHONPATH accordingly, e.g.,
+```
+export PYTHONPATH=$PYTHONPATH:/home/07418/sianjin/caffe/python
+```
 
-After git clone DeepSZ, you will need to modify "launch.sh", "reassemble_and_test.py" and "optimize.py" in their first line to address your Caffe/PyCaffe location.
+- Then, launch Python and “import caffe”, if no error reports, PyCaffe is working! 
 
-Then please change train_val.prototxt line 40 and line 51 to match your imagenet_mean.binaryproto and your ImageNet validation file location.
+## Run DeepSZ
 
-Finally, you can launch DeepSZ with command "source ./launch.sh"
+- After installing PyCaffe, please go to DeepSZ’s root directory and modify the first lines of "launch.sh", "reassemble_and_test.py", and "optimize.py" to your PyCaffe location.
+
+- Then, please change line 40 and line 51 of “train_val.prototxt” to match your imagenet_mean.binaryproto and your ImageNet validation file location.
+
+- Finally, you can launch DeepSZ using the below command 
+```
+bash ./launch.sh
+```
