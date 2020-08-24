@@ -95,6 +95,7 @@ line = "cat ./decompressed_model/caffe_test_log.txt | grep \"] accuracy =\" > ./
 os.system(line_exc)
 accuracy = float(open("./decompressed_model/accuracy.txt").read().split()[6])
 
+print("(compressed data file size, fc6 error bound (E-3), fc7 error bound (E-3),fc8 error bound (E-3))")
 print(min_size, eb_fc6+1, eb_fc7+1, eb_fc8+1)
 print("final optimzation done, accuracy after reconstruct is:")
 print(accuracy)
